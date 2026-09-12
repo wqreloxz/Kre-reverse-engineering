@@ -1,5 +1,5 @@
 """
-KRE Plugin — Hash Report
+KRE Plugin Hash Report
 Shows all file hashes, ImpHash, and section-level hashes.
 """
 plugin_info = {
@@ -12,11 +12,8 @@ import hashlib
 
 def run(analyzer):
     lines = [
-        "=" * 58,
         "  HASH REPORT",
-        "=" * 58, "",
-        "  File Hashes",
-        "  " + "-" * 54,
+        "  File Hashes"
     ]
 
     for k, v in analyzer.hashes():
