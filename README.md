@@ -1,6 +1,4 @@
-# KRE v4 — Complete Reference & Use-Case Guide
-
----
+# KRE beta — Complete Reference & Use-Case Guide
 
 ## Quick Start
 
@@ -18,7 +16,7 @@ Drag & drop any binary onto the window. KRE auto-detects PE, ELF, and Mach-O.
 
 ---
 
-## What's New in v4
+## What's New in v0.0.1
 
 | Feature | Module |
 |---------|--------|
@@ -667,3 +665,5 @@ Python 3.9+. All optional dependencies degrade gracefully if absent.
 ```
 
 `patches`: `{ "file_offset_decimal": [original_byte, patched_byte] }`
+
+create with love
