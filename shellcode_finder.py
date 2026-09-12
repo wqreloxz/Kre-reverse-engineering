@@ -1,5 +1,5 @@
 """
-KRE Plugin — Shellcode Finder
+KRE Plugin Shellcode Finder
 Locates injectable code cave regions and scans for common shellcode signatures.
 """
 plugin_info = {
@@ -30,7 +30,7 @@ SHELLCODE_SIGS = [
 
 
 def _find_sig(data: bytes, sig_hex: str) -> list:
-    """Find a signature (supports ?? wildcards) in data."""
+    #Find a signature (supports ?? wildcards) in data.
     tokens = sig_hex.split()
     pat = []
     for t in tokens:
@@ -46,10 +46,7 @@ def _find_sig(data: bytes, sig_hex: str) -> list:
 def run(analyzer):
     raw = bytes(analyzer.raw)
     lines = [
-        "=" * 60,
         "  SHELLCODE FINDER",
-        "=" * 60, "",
-    ]
 
     # 1. Code caves
     caves = analyzer.find_code_caves(min_size=64, byte=0x00)
@@ -83,7 +80,7 @@ def run(analyzer):
 
     # 3. Executable section entropy
     lines.append("  Executable Sections — Entropy")
-    lines.append("  " + "-" * 56)
+    lines.append("  " + "-" * 5)
     for s in analyzer.sections():
         if not s.get("X"): continue
         ent = s["EntropyF"]
