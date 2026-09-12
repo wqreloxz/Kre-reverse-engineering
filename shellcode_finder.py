@@ -46,7 +46,7 @@ def _find_sig(data: bytes, sig_hex: str) -> list:
 def run(analyzer):
     raw = bytes(analyzer.raw)
     lines = [
-        "  SHELLCODE FINDER",
+        "  SHELLCODE FINDER"
 
     # 1. Code caves
     caves = analyzer.find_code_caves(min_size=64, byte=0x00)
@@ -90,9 +90,7 @@ def run(analyzer):
     lines.append("")
 
     lines += [
-        "=" * 60,
         f"  Total shellcode pattern hits : {total_hits}",
-        f"  Total injectable cave regions : {len(caves)}",
-        "=" * 60,
+        f"  Total injectable cave regions : {len(caves)}"
     ]
     return "\n".join(lines)
