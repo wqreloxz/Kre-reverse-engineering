@@ -1,5 +1,5 @@
 """
-KRE Plugin — Network Indicator Report
+KRE Plugin  Network Indicator Report
 Extracts and formats all network indicators found in the binary.
 """
 plugin_info = {
@@ -16,9 +16,7 @@ def run(analyzer):
         return "No network indicators found."
 
     lines = [
-        "=" * 58,
-        f"  NETWORK INDICATORS   {total} total",
-        "=" * 58, "",
+        f"  NETWORK INDICATORS   {total} total"
     ]
 
     for category, items in net.items():
