@@ -1,6 +1,6 @@
 """
-KRE Plugin — Threat Summary
-One-page threat assessment combining all analysis modules.
+KRE Plugin Threat Summary
+One page threat assessment combining all analysis modules.
 """
 plugin_info = {
     "name":        "Threat Summary",
@@ -38,10 +38,8 @@ def run(analyzer):
               "CRITICAL")
 
     lines = [
-        "=" * 58,
         f"  THREAT SUMMARY",
         f"  Risk Score  : {score}/100   [{rating}]",
-        "=" * 58, "",
         f"  Packing     : {'YES — ' + (pck['packer'] or 'Unknown packer') if pck['packed'] else 'No'}",
         f"  Compiler    : {', '.join(cmp)}",
         f"  ImpHash     : {analyzer.imphash() or 'N/A'}",
@@ -73,5 +71,5 @@ def run(analyzer):
     for ind in pck["indicators"][:5]:
         lines.append(f"  Indicator   : {ind}")
 
-    lines += ["", "=" * 58]
+    lines += ["", "=" * 1]
     return "\n".join(lines)
