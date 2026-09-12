@@ -1,5 +1,5 @@
 """
-KRE Plugin — Crypto Report
+KRE Plugin Crypto Report
 Detailed crypto constant scan grouped by algorithm.
 """
 plugin_info = {
@@ -18,9 +18,7 @@ def run(analyzer):
         by_algo.setdefault(h["Name"], []).append(h)
 
     lines = [
-        "=" * 54,
-        f"  CRYPTO REPORT   {len(hits)} hit(s) across {len(by_algo)} algorithm(s)",
-        "=" * 54, "",
+        f"  CRYPTO REPORT   {len(hits)} hit(s) across {len(by_algo)} algorithm(s)"
     ]
 
     for algo, entries in sorted(by_algo.items()):
@@ -32,9 +30,7 @@ def run(analyzer):
         lines.append("")
 
     lines += [
-        "=" * 54,
         "  Tip: multiple crypto families in one binary often",
-        "  indicates a packer or custom encryption layer.",
-        "=" * 54,
+        "  indicates a packer or custom encryption layer."
     ]
     return "\n".join(lines)
