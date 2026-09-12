@@ -1,0 +1,6 @@
+pefile>=2023.2.7
+capstone>=5.0.1
+PyQt6>=6.4.0
+unicorn>=2.0.0
+yara-python>=4.3.0
+ghidra-bridge>=0.3.0
