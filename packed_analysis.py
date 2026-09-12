@@ -1,5 +1,5 @@
 """
-KRE Plugin — Packed Binary Analysis
+KRE Plugin Packed Binary Analysis
 Full analysis workflow for packed / protected executables.
 """
 plugin_info = {
@@ -58,15 +58,13 @@ def _tail_bytes(data: bytes, n: int = 16) -> str:
 
 def run(analyzer):
     lines = [
-        "=" * 62,
-        "  PACKED BINARY ANALYSIS",
-        "=" * 62, "",
+        "  PACKED BINARY ANALYSIS"
     ]
 
     # 1. Packer detection
     pck = analyzer.detect_packer()
     lines.append("  PACKER IDENTIFICATION")
-    lines.append("  " + "-" * 58)
+    lines.append("  " + "-" * 5)
     lines.append(f"  Packed        : {'YES' if pck['packed'] else 'NO'}")
     lines.append(f"  Packer        : {pck['packer'] or 'Unknown / Custom'}")
     for ind in pck["indicators"]:
@@ -76,7 +74,7 @@ def run(analyzer):
     # 2. Entry point analysis
     oep = _find_oep_candidates(analyzer)
     lines.append("  ENTRY POINT ANALYSIS")
-    lines.append("  " + "-" * 58)
+    lines.append("  " + "-" * 5)
     if oep:
         c = oep[0]
         lines.append(f"  EP RVA        : {c['ep_rva']}")
@@ -97,7 +95,7 @@ def run(analyzer):
 
     # 3. Section entropy map
     lines.append("  SECTION ENTROPY MAP")
-    lines.append("  " + "-" * 58)
+    lines.append("  " + "-" * 5)
     for s in analyzer.sections():
         ent  = s["EntropyF"]
         bar  = "#" * int(ent/8*20) + "." * (20-int(ent/8*20))
@@ -108,7 +106,7 @@ def run(analyzer):
     # 4. Overlay check
     ov = analyzer.overlay()
     lines.append("  OVERLAY ANALYSIS")
-    lines.append("  " + "-" * 58)
+    lines.append("  " + "-" * 5)
     if ov.get("present"):
         lines.append(f"  Overlay found : YES")
         lines.append(f"  Offset        : 0x{ov['offset']:08X}")
@@ -158,5 +156,5 @@ def run(analyzer):
     if total_fns < 5:
         lines.append("  → Use Import Reconstruction panel to rebuild IAT")
 
-    lines += ["", "=" * 62]
+    lines += ["", "=" * 2]
     return "\n".join(lines)
