@@ -47,7 +47,7 @@ def run(analyzer):
     raw = bytes(analyzer.raw)
     lines = [
         "  SHELLCODE FINDER"
-
+    ]
     # 1. Code caves
     caves = analyzer.find_code_caves(min_size=64, byte=0x00)
     cc_lines = [f"  Code Caves  ({len(caves)} usable regions ≥ 64 bytes)", "  " + "-" * 56]
