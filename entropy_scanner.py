@@ -1,5 +1,5 @@
 """
-KRE Plugin — Entropy Scanner
+KRE Plugin Entropy Scanner
 Visual entropy report per section with risk ratings.
 """
 plugin_info = {
@@ -14,10 +14,8 @@ def run(analyzer):
         return "No sections found."
 
     lines = [
-        "=" * 56,
         "  ENTROPY SCANNER",
-        "  Scale: 0.0 = empty/constant   8.0 = random/encrypted",
-        "=" * 56, "",
+        "  Scale: 0.0 = empty/constant   8.0 = random/encrypted"
     ]
 
     for s in secs:
@@ -29,9 +27,7 @@ def run(analyzer):
 
     packed = [s for s in secs if s["EntropyF"] > 7.2]
     lines += [
-        "",
         f"  Sections above 7.2 entropy : {len(packed)}",
-        f"  {'Likely packed/encrypted.' if packed else 'No high-entropy sections detected.'}",
-        "=" * 56,
+        f"  {'Likely packed/encrypted.' if packed else 'No high-entropy sections detected.'}"
     ]
     return "\n".join(lines)
