@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 """
-KRE — Kovak Reverse Engineering Studio  (Final)
-═══════════════════════════════════════════════
+KRE — Kovak Reverse Engineering
 Full feature set — everything from all sessions:
 
   Static Analysis
-  ───────────────
-  • PE headers (DOS / NT / Optional / File)
-  • Sections with entropy visualization
-  • Imports / Exports / Relocations / TLS / Resources / Debug Info
-  • Rich Header decoder (MSVC compiler fingerprint)
-  • Overlay Analyzer — data after last section
-  • Import Hash (ImpHash) — malware family attribution
-  • Checksum verify + recalculate
+   PE headers (DOS / NT / Optional / File)
+  Sections with entropy visualization
+ Imports / Exports / Relocations / TLS / Resources / Debug Info
+   Rich Header decoder (MSVC compiler fingerprint)
+   Overlay Analyzer — data after last section
+   Import Hash (ImpHash) — malware family attribution
+   Checksum verify + recalculate
 
   Code Analysis
   ─────────────
